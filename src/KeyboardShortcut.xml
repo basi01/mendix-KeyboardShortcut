@@ -48,6 +48,10 @@
                 <caption>Disable on popup open</caption>
                 <description>Whether or not to disable the keyboard shortcut when a popup is open (checks whether class '.modal-dialog' is found on the page).</description>
             </property>
+            <property key="limitToEnclosingContainer" type="boolean" required="true" defaultValue="false">
+                <caption>Limit to enclosing container</caption>
+                <description>Events not from enclosing container are ignored</description>
+            </property>
         </propertyGroup>
     </properties>
 </widget>

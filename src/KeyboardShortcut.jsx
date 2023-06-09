@@ -1,4 +1,5 @@
 import { Component, createElement } from "react";
+import {findDOMNode} from "react-dom";
 
 export class KeyboardShortcut extends Component {
     constructor(props) {
@@ -6,9 +7,12 @@ export class KeyboardShortcut extends Component {
         this.handleKeyDown = this.keyDown.bind(this);
         this.pid;
         this.shortcutActionKey;
+        this.parentDom;
     }
     componentDidMount() {
         window.addEventListener("keydown", this.handleKeyDown);
+        const dom = findDOMNode(this);
+        this.parentDom = dom.parentElement;
     }
 
     componentWillUnmount() {
@@ -53,6 +57,9 @@ export class KeyboardShortcut extends Component {
             if (document.getElementsByClassName('modal-dialog').length > 0) {
                 return;
             }
+        }
+        if (this.props.limitToEnclosingContainer && !this.parentDom.contains(e.target)) {
+            return;
         }
 
         let shortcutAction;
