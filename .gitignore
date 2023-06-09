@@ -5,6 +5,7 @@ Test/deployment/
 Test/.classpath
 Test/.project
 Test/GPUCache/
+project-settings.user.json
 *.launch
 *.tmp
 *.lock
